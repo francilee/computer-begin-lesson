@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computer, Begin Lesson</title>  <style>
+    :root {
+      --space: #111827;
+      --cream: #fff8ec;
+      --green: #6f8f72;
+      --gold: #d9a441;
+      --pink: #d99ca3;
+      --text: #2d2a26;
+      --card: rgba(255, 255, 255, 0.86);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #111827 0%, #283746 35%, #fff8ec 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .screen {
+      min-height: 100vh;
+      padding: 32px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      width: min(920px, 100%);
+      background: var(--card);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .dark {
+      background: #0b1020;
+      color: #d7ffe0;
+      font-family: "Courier New", monospace;
+    }
+
+    h1, h2 {
+      line-height: 1.15;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 8vw, 4.5rem);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 6vw, 3rem);
+      color: var(--green);
+    }
+
+    .terminal {
+      background: #0b1020;
+      color: #d7ffe0;
+      border-radius: 18px;
+      padding: 22px;
+      font-family: "Courier New", monospace;
+      margin: 18px 0;
+      overflow-x: auto;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .button.gold {
+      background: var(--gold);
+      color: #1f1f1f;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .mini {
+      background: white;
+      border-radius: 20px;
+      padding: 18px;
+      border-left: 6px solid var(--pink);
+    }
+
+    .photo-box {
+      background: #efe4cf;
+      border: 2px dashed #b99c6b;
+      border-radius: 20px;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #6b5b45;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #6b5b45;
+    }
+  </style></head><body>  <section class="screen dark">
+    <div class="card dark">
+      <h1>Computer, Begin Lesson</h1>
+      <p>STARFLEET AI ACADEMY · Barcelona Campus</p>  <div class="terminal">
+    > Welcome back, Commander Angi.<br>
+    > Unexpected visitor detected...<br>
+    > Name: Franci<br>
+    > Occupation: Psychologist<br>
+    > Curiosity level: 999%<br>
+    > Probability of asking 47 questions today: 99.8% 🙂<br><br>
+    WARNING: Franci has entered an existential sub-question.<br>
+    Estimated delay: 14 minutes.
+  </div>
+
+  <a class="button gold" href="#mission">🖖 Engage</a>
+</div>
+
+  </section>  <section class="screen" id="mission">
+    <div class="card">
+      <h2>Mission Briefing</h2>
+      <p>
+        Today’s mission is simple: teach one curious psychologist that HTML is not a monster,
+        CSS is not black magic, and JavaScript is only dramatic sometimes.
+      </p>  <div class="terminal">
+    > Loading mentor profile...<br>
+    > Name: Angi<br>
+    > Role: AI Mentor, Kitchen Commander, Flower Whisperer<br>
+    > Special memory: Vintage glasses detected 🙂<br>
+    > Status: Fairy godmother energy confirmed.
+  </div>
+
+  <a class="button" href="https://www.youtube.com/results?search_query=Sarah+Brightman+official" target="_blank">
+    🎵 Begin Sarah Brightman Coding Soundtrack
+  </a>
+</div>
+
+  </section>  <section class="screen">
+    <div class="card">
+      <h2>Commander Angi: System Profile</h2>  <div class="grid">
+    <div class="mini">
+      <h3>🌿 Plant Communications</h3>
+      <p>Talks to the plants with Franci. They are probably listening anyway. 🙂</p>
+    </div>
+
+    <div class="mini">
+      <h3>🍳 Cooking Protocol</h3>
+      <p>Love language detected: feeding people beautifully and with intention.</p>
+    </div>
+
+    <div class="mini">
+      <h3>💻 AI Mentorship</h3>
+      <p>Explains complicated things using simple examples, including cars.</p>
+    </div>
+
+    <div class="mini">
+      <h3>🚀 Starfleet Taste</h3>
+      <p>Star Trek approved. Elegant, clever, slightly futuristic.</p>
+    </div>
+  </div>
+</div>
+
+  </section>  <section class="screen">
+    <div class="card">
+      <h2>Today’s Checklist</h2>  <ul>
+    <li>☐ Teach Franci one new HTML trick.</li>
+    <li>☐ Talk to the plants with Franci. They’re probably listening anyway. 🙂</li>
+    <li>☐ Eat something delicious together.</li>
+    <li>☐ Listen to Sarah Brightman while coding.</li>
+    <li>☐ Open this website code and explain how it works.</li>
+    <li>☐ Continue building something funny, beautiful, and slightly nerdy.</li>
+  </ul>
+</div>
+
+  </section>  <section class="screen">
+    <div class="card">
+      <h2>Photo Gallery Placeholder</h2>
+      <p>
+        Franci built this fast from her phone, so the photos can be added later with Angi.
+        This is where the lilies, Christmas tree, ice cream, and first HTML lesson can go.
+      </p>  <div class="grid">
+    <div class="photo-box">🌸 Flower photo goes here</div>
+    <div class="photo-box">🎄 Christmas decoration photo goes here</div>
+    <div class="photo-box">🍦 Ice cream friendship photo goes here</div>
+    <div class="photo-box">💻 First HTML lesson photo goes here</div>
+  </div>
+</div>
+
+  </section>  <section class="screen">
+    <div class="card">
+      <h2>How This Website Works</h2>  <p><strong>HTML</strong> is the structure. It creates the sections, titles, buttons, and text.</p>
+
+  <p><strong>CSS</strong> is the decoration. It controls colors, spacing, fonts, cards, and mobile layout.</p>
+
+  <p><strong>Links</strong> are made with the <code>&lt;a&gt;</code> tag. The Sarah Brightman button is a link that opens YouTube in a new tab.</p>
+
+  <p><strong>Cards</strong> are boxes created with CSS. They make the website feel elegant and organized.</p>
+
+  <p><strong>Mobile-friendly design</strong> comes from this line:</p>
+
+  <div class="terminal">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+  </div>
+
+  <p>
+    This tells the browser: “Please adapt this page to the size of the phone.”
+  </p>
+
+  <p><strong>Mission for Angi:</strong> open this file, change one color, add one photo, and explain to Franci what happened.</p>
+</div>
+
+  </section>  <section class="screen">
+    <div class="card">
+      <h2>Final Message</h2>
+      <p>
+        Dear Angi,
+      </p>
+      <p>
+        Thank you for making AI and code feel less scary, more playful, and much more human.
+        This little website is not perfect, but it is alive enough to become our next lesson.
+      </p>
+      <p>
+        Now please teach me how this works. 🙂
+      </p>
+      <p>
+        — Franci
+      </p>
+    </div>
+  </section>  <footer>
+    Built with curiosity, friendship, plants, Sarah Brightman, and a small amount of JavaScript drama.
+  </footer></body>
+</html>
