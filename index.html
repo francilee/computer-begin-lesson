@@ -4,52 +4,112 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Computer, Begin Lesson</title><style>
 :root {
-  --green: #6f8f72;
+  --black: #07070b;
+  --space: #10101a;
+  --deep: #171122;
   --gold: #d9a441;
-  --pink: #d99ca3;
-  --text: #2d2a26;
-  --card: rgba(255, 255, 255, 0.88);
+  --soft-gold: #f2d28a;
+  --magenta: #c02f7d;
+  --pink: #e7a6c8;
+  --cream: #fff7e8;
+  --green: #8ea77b;
+  --text: #f8f0df;
+  --dark-text: #2d2530;
+  --card: rgba(20, 14, 28, 0.88);
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  background: linear-gradient(180deg, #111827 0%, #283746 35%, #fff8ec 100%);
+  background:
+    radial-gradient(circle at top left, rgba(192,47,125,0.35), transparent 32%),
+    radial-gradient(circle at top right, rgba(217,164,65,0.25), transparent 30%),
+    linear-gradient(180deg, var(--black), var(--deep), #fff7e8);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.65;
+}
+
+body::before {
+  content: "✦ ✧ ✦";
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  color: rgba(242,210,138,0.35);
+  font-size: 1.5rem;
+  z-index: 0;
 }
 
 .screen {
   min-height: 100vh;
-  padding: 32px 20px;
+  padding: 34px 18px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .card {
-  width: min(920px, 100%);
+  width: min(980px, 100%);
   background: var(--card);
-  border-radius: 28px;
-  padding: 28px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  border: 1px solid rgba(242,210,138,0.35);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
 }
 
-.dark {
-  background: #0b1020;
-  color: #d7ffe0;
-  font-family: "Courier New", monospace;
+.light-card {
+  background: rgba(255,247,232,0.94);
+  color: var(--dark-text);
 }
 
-h1 { font-size: clamp(2rem, 8vw, 4.5rem); line-height: 1.1; }
-h2 { font-size: clamp(1.6rem, 6vw, 3rem); color: var(--green); }
-h3 { margin-bottom: 6px; }
+h1 {
+  font-size: clamp(2.2rem, 8vw, 5rem);
+  line-height: 1;
+  margin: 0 0 18px;
+  color: var(--soft-gold);
+}
 
-.terminal, pre {
-  background: #0b1020;
+h2 {
+  font-size: clamp(1.7rem, 6vw, 3rem);
+  line-height: 1.1;
+  margin-top: 0;
+  color: var(--soft-gold);
+}
+
+.light-card h2 {
+  color: var(--magenta);
+}
+
+h3 {
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.light-card h3 {
+  color: var(--magenta);
+}
+
+.subtitle {
+  color: var(--pink);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.terminal,
+pre {
+  background: #05050a;
   color: #d7ffe0;
+  border: 1px solid rgba(217,164,65,0.35);
   border-radius: 18px;
   padding: 18px;
   font-family: "Courier New", monospace;
@@ -59,308 +119,786 @@ h3 { margin-bottom: 6px; }
 
 .button {
   display: inline-block;
-  margin-top: 14px;
+  margin: 10px 8px 10px 0;
   padding: 14px 22px;
   border-radius: 999px;
-  background: var(--green);
+  background: var(--magenta);
   color: white;
   text-decoration: none;
   font-weight: bold;
-  border: none;
+  border: 1px solid rgba(255,255,255,0.2);
   cursor: pointer;
   font-size: 1rem;
 }
 
 .button.gold {
   background: var(--gold);
-  color: #1f1f1f;
+  color: #1d1420;
+}
+
+.button.dark {
+  background: #11111b;
+  color: var(--soft-gold);
+  border: 1px solid var(--gold);
+}
+
+.flower-line {
+  color: var(--pink);
+  font-size: 1.3rem;
+  margin: 14px 0;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 18px;
+  margin-top: 20px;
 }
 
 .mini {
-  background: white;
-  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(242,210,138,0.25);
+  border-left: 7px solid var(--magenta);
+  border-radius: 22px;
   padding: 18px;
-  border-left: 6px solid var(--pink);
+}
+
+.light-card .mini {
+  background: white;
 }
 
 .checklist label {
   display: block;
-  background: white;
+  background: rgba(255,255,255,0.1);
   margin: 12px 0;
   padding: 14px;
   border-radius: 16px;
   cursor: pointer;
+  border: 1px solid rgba(242,210,138,0.2);
+}
+
+.light-card .checklist label {
+  background: white;
 }
 
 .checklist input {
-  transform: scale(1.3);
+  transform: scale(1.25);
   margin-right: 10px;
 }
 
 .checklist label.done {
   text-decoration: line-through;
-  opacity: 0.65;
+  opacity: 0.62;
 }
 
-.lesson-panel {
+.lesson-panel,
+.log-panel,
+.gallery-panel,
+.css-panel {
   display: none;
   margin-top: 25px;
-  background: #fff8ec;
-  border-radius: 22px;
+  background: rgba(255,247,232,0.96);
+  color: var(--dark-text);
+  border-radius: 24px;
   padding: 22px;
   border: 2px solid var(--gold);
 }
 
-.lesson-step {
+.lesson-step,
+.log-entry,
+.gallery-item {
   background: white;
   border-radius: 18px;
   padding: 18px;
   margin: 18px 0;
-  border-left: 6px solid var(--green);
+  border-left: 7px solid var(--magenta);
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 12px;
+  border: 4px solid var(--gold);
+}
+
+.placeholder {
+  border: 2px dashed #b99c6b;
+  border-radius: 16px;
+  padding: 18px;
+  background: #efe4cf;
+  color: #6b5b45;
+  text-align: center;
 }
 
 #mission-message {
   margin-top: 18px;
   font-weight: bold;
-  color: var(--green);
+  color: var(--soft-gold);
+}
+
+.light-card #mission-message {
+  color: var(--magenta);
 }
 
 footer {
   text-align: center;
-  padding: 30px 20px;
+  padding: 34px 20px;
   color: #6b5b45;
 }
-</style></head><body><section class="screen dark">
-  <div class="card dark">
-    <h1>Computer, Begin Lesson</h1>
-    <p>STARFLEET AI ACADEMY · Barcelona Campus</p><div class="terminal">
 
-«Welcome back, Commander Angi.
-Unexpected visitor detected...
-Name: Franci
-Occupation: Psychologist
-Curiosity level: 999%
-Probability of asking 47 questions today: 99.8% 🙂»
-
-WARNING: Franci has entered an existential sub-question.
-Estimated delay: 14 minutes.
+code {
+  background: rgba(0,0,0,0.08);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+</style></head>
+<body>
+  <section class="screen">
+  <div class="card"><div class="subtitle">
+  STARFLEET AI ACADEMY • Barcelona Campus
 </div>
 
-<a class="button gold" href="#mission">🖖 Engage</a>
+<h1>Computer, Begin Lesson</h1>
 
-  </div>
-</section><section class="screen" id="mission">
-  <div class="card">
-    <h2>Mission Briefing</h2>
-    <p>
-      Today’s mission is simple: teach one curious psychologist that HTML is not a monster,
-      CSS is not black magic, and JavaScript is only dramatic sometimes.
-    </p><div class="terminal">
+<p>
+  Welcome back, <strong>Commander Angi</strong>.
+</p>
 
-«Loading mentor profile...
-Name: Angi
-Role: AI Mentor, Kitchen Commander, Flower Whisperer
-Special memory: Vintage glasses detected 🙂
-Status: Fairy godmother energy confirmed.
-</div>»
+<div class="flower-line">
+  ✿ ✦ ❀ ✦ 🌸 ✦ ❀ ✦ ✿
+</div>
 
-<a class="button" href="https://www.youtube.com/results?search_query=Sarah+Brightman+official" target="_blank">
-  🎵 Begin Sarah Brightman Coding Soundtrack
+<div class="terminal">
+
+«Welcome back, Commander Angi.»
+
+«Unexpected visitor detected...»
+
+Name: Franci
+
+Occupation: Psychologist
+
+Curiosity level: 999%
+
+Probability of asking 47 questions today:
+
+99.8%
+
+🙂
+
+WARNING:
+
+Cadet Franci has entered another existential sub-question.
+
+Estimated discussion time:
+
+14 minutes...
+</div>
+
+<br>
+
+<a href="#mission" class="button gold">
+  🖖 Engage
 </a>
 
   </div>
-</section><section class="screen">
-  <div class="card">
-    <h2>Commander Angi: System Profile</h2><div class="grid">
-  <div class="mini">
-    <h3>🌿 Plant Communications</h3>
-    <p>Talks to the plants with Franci. They are probably listening anyway. 🙂</p>
-  </div>
+</section><section class="screen" id="mission"><div class="card light-card"><h2>
+Mission Briefing
+</h2><p>Today's mission is simple.
 
-  <div class="mini">
-    <h3>🍳 Cooking Protocol</h3>
-    <p>Love language detected: feeding people beautifully and with intention.</p>
-  </div>
+Teach one curious psychologist that:
 
-  <div class="mini">
-    <h3>💻 AI Mentorship</h3>
-    <p>Explains complicated things using simple examples, including cars.</p>
-  </div>
+</p><ul><li>HTML is not scary.</li><li>CSS is not black magic.</li><li>JavaScript is only dramatic sometimes.</li></ul><div class="terminal">«Loading Commander Profile...»
 
-  <div class="mini">
-    <h3>🚀 Starfleet Taste</h3>
-    <p>Star Trek approved. Elegant, clever, slightly futuristic.</p>
-  </div>
-</div>
+Name:
+Angi
 
-  </div>
-</section><section class="screen">
-  <div class="card">
-    <h2>Today’s Checklist</h2><div class="checklist">
-  <label><input type="checkbox"> Teach Franci one new HTML trick.</label>
-  <label><input type="checkbox"> Talk to the plants with Franci. They’re probably listening anyway. 🙂</label>
-  <label><input type="checkbox"> Eat something delicious together.</label>
-  <label><input type="checkbox"> Listen to Sarah Brightman while coding.</label>
-  <label><input type="checkbox"> Open this website code and explain how it works.</label>
-  <label><input type="checkbox"> Continue building something funny, beautiful, and slightly nerdy.</label>
-</div>
+Role:
+AI Mentor
 
-<p id="mission-message">Click the boxes to complete the mission.</p>
+Kitchen Commander
 
-<button class="button gold" id="drama-button">
-  ⚠ JavaScript Drama Ahead... Proceed Anyway? 🙂
+Flower Whisperer
+
+Interior Designer
+
+Special Memory:
+Vintage Glasses Detected 🙂
+
+Status:
+Fairy Godmother Confirmed.
+
+</div><a
+class="button"
+target="_blank"
+href="https://www.youtube.com/results?search_query=Sarah+Brightman+official">
+
+🎵 Begin Sarah Brightman Coding Soundtrack
+
+</a><a
+class="button gold"
+target="_blank"
+href="https://rodalies.gencat.cat/en/horaris/index.html">
+
+🚆 Plot Course to Commander Angi's Base
+
+</a></div></section><section class="screen"><div class="card"><h2>Commander Angi
+
+System Profile
+
+</h2><div class="grid"><div class="mini"><h3>🌿 Plant Communication
+
+</h3><p>Talks to plants.
+
+Now Franci has started talking to them too.
+
+The jury is still deciding whether the plants answer.
+
+🙂
+
+</p></div><div class="mini"><h3>🍳 Cooking Protocol
+
+</h3><p>Primary Love Language Detected:
+
+Cooking.
+
+Meals prepared with intention.
+
+Meals remembered forever.
+
+</p></div><div class="mini"><h3>🌷 Floral Engineering
+
+</h3><p>Known to produce beautiful flowers,
+
+beautiful gardens,
+
+beautiful decoration,
+
+and beautiful conversations.
+
+</p></div><div class="mini"><h3>🖖 Starfleet Status
+
+</h3><p>Star Trek approved.
+
+Elegant.
+
+Calm.
+
+Curious.
+
+Dangerously capable of explaining programming with cars.
+
+</p></div></div></div></section><section class="screen"><div class="card light-card"><h2>Today's Mission Checklist
+
+</h2><div class="checklist"><label><input type="checkbox">
+
+Teach Franci one new HTML trick.
+
+</label><label><input type="checkbox">
+
+Talk to the plants together.
+
+They're probably listening anyway.
+
+🙂
+
+</label><label><input type="checkbox">
+
+Eat something delicious.
+
+</label><label><input type="checkbox">
+
+Listen to Sarah Brightman while coding.
+
+</label><label><input type="checkbox">
+
+Open this website
+
+and explain how it works.
+
+</label><label><input type="checkbox">
+
+Continue building
+
+something funny,
+
+beautiful,
+
+and slightly nerdy.
+
+</label></div><p id="mission-message">Click the boxes to complete today's mission.
+
+</p><button
+class="button gold"
+id="drama-button">
+
+⚠ JavaScript Drama Ahead...
+
+Proceed Anyway?
+
+🙂
+
+</button><button
+class="button dark"
+id="css-button">
+
+🎨 CSS Academy
+
+</button></div></section>
+<div class="lesson-panel" id="javascript-lesson"><h2>⚠ JavaScript Drama</h2><p>Programming is not magic.
+
+Humans think in big ideas.
+
+Computers think in tiny exact steps.
+
+That is why programming languages exist.
+
+They translate our ideas into instructions a computer can follow.
+
+</p><div class="lesson-step"><h3>The First Line</h3><pre>
+const checkboxes =
+document.querySelectorAll(".checklist input");
+</pre><p>Imagine asking someone:
+
+"Please remember every checkbox on this page."
+
+JavaScript cannot understand that sentence directly.
+
+Instead it uses its own grammar.
+
+</p><p><strong>const</strong>
+
+means:
+
+Create a container with a name.
+
+That container will be called
+
+<strong>checkboxes</strong>.
+
+</p><p><strong>document</strong>
+
+means:
+
+"The webpage itself."
+
+Browsers think every webpage is one large document.
+
+</p><p><strong>query</strong>
+
+means:
+
+Ask.
+
+</p><p><strong>selector</strong>
+
+means:
+
+How do we recognise something?
+
+</p><p><strong>All</strong>
+
+means:
+
+Don't stop at one.
+
+Find every matching checkbox.
+
+</p><p>Reading the whole sentence like English:
+
+</p><pre>
+
+Create a container
+
+called checkboxes.
+
+Go to the webpage.
+
+Find every checkbox.
+
+Put them into that container.
+
+</pre></div><div class="lesson-step"><h3>Then JavaScript waits.
+
+</h3><pre>
+
+box.addEventListener("change", function(){
+
+});
+
+</pre><p>The computer is not constantly checking.
+
+It quietly waits.
+
+</p><p><strong>addEventListener</strong>
+
+means
+
+"When this thing changes...
+
+tell me."
+
+</p><p>Nothing happens...
+
+until a human clicks.
+
+</p></div><div class="lesson-step"><h3>Then comes the question.
+
+</h3><pre>
+
+if(checked===total){
+
+}
+
+</pre><p>Humans say
+
+"When everything is finished..."
+
+</p><p>JavaScript asks
+
+"Are these two numbers exactly equal?"
+
+</p><p><strong>if</strong>
+
+means
+
+Ask a question.
+
+</p><p><strong>===</strong>
+
+means
+
+Exactly equal.
+
+</p></div><div class="lesson-step"><h3>Why block?
+
+</h3><pre>
+
+message.style.display="block";
+
+</pre><p>This line surprises almost everyone.
+
+JavaScript is borrowing a word from CSS.
+
+</p><p>Earlier,
+
+CSS hid the message using
+
+<code>display:none;</code>
+
+</p><p>JavaScript simply tells CSS:
+
+</p><pre>
+
+Please stop hiding it.
+
+Display it as a normal block.
+
+</pre><p>JavaScript doesn't decide
+
+what "block" means.
+
+CSS already knows.
+
+JavaScript just asks CSS
+
+to use that style.
+
+</p></div><div class="lesson-step"><h3>The Big Picture
+
+</h3><p>HTML creates things.
+
+</p><p>CSS dresses things.
+
+</p><p>JavaScript watches people.
+
+</p><p>When people do something...
+
+JavaScript changes the page.
+
+</p></div></div><div class="css-panel" id="css-lesson"><h2>🎨 CSS Academy
+
+</h2><p>HTML builds the house.
+
+CSS decorates it.
+
+</p><div class="lesson-step"><h3>Why a separate language?
+
+</h3><p>Imagine writing a novel.
+
+Would you write
+
+the story
+
+and
+
+the printing instructions
+
+inside the same sentence?
+
+Probably not.
+
+</p><p>HTML describes
+
+WHAT exists.
+
+CSS describes
+
+HOW it should look.
+
+</p></div><div class="lesson-step"><h3>display:block
+
+</h3><p>Think of a sheet of paper.
+
+A block starts on its own line
+
+and occupies the available width.
+
+Paragraphs,
+
+cards
+
+and sections
+
+are normally blocks.
+
+</p></div><div class="lesson-step"><h3>Classes
+
+</h3><p>A class is like
+
+giving several people
+
+the same coloured badge.
+
+</p><p>Anyone wearing
+
+the "done" badge
+
+gets crossed out.
+
+</p></div><div class="lesson-step"><h3>IDs
+
+</h3><p>An ID is different.
+
+Only ONE element
+
+should have it.
+
+</p><p>Like your passport number.
+
+</p></div></div>
+<section class="screen">
+  <div class="card light-card"><h2>📖 Captain's Log</h2>
+
+<p>
+  Every mission leaves traces. This section records how Franci built, broke,
+  fixed, published, and slowly understood this website.
+</p>
+
+<button class="button gold" id="log-button">
+  📖 Open Captain's Log
 </button>
 
-<div class="lesson-panel" id="javascript-lesson">
-  <h2>JavaScript Drama: Why Does This Work?</h2>
+<div class="log-panel" id="captains-log">
 
-  <p>
-    Programming is not magic. It is a set of tiny instructions.
-    Humans say: “When all boxes are checked, show the message.”
-    JavaScript needs that idea broken into smaller steps.
-  </p>
-
-  <div class="lesson-step">
-    <h3>1. First, JavaScript finds the checkboxes</h3>
-    <pre>const checkboxes = document.querySelectorAll('.checklist input');</pre>
-    <p><strong>const</strong> means: “Create a named container.”</p>
-    <p><strong>checkboxes</strong> is the name of the container.</p>
-    <p><strong>document</strong> means the whole webpage.</p>
-    <p><strong>querySelectorAll</strong> means: “Search and find all things that match this description.”</p>
-    <p><strong>'.checklist input'</strong> means: “Find all input elements inside the checklist area.”</p>
-  </div>
-
-  <div class="lesson-step">
-    <h3>2. Then JavaScript finds the message</h3>
-    <pre>const message = document.getElementById('mission-message');</pre>
+  <div class="log-entry">
+    <h3>Log Entry 01: The Idea</h3>
     <p>
-      This tells JavaScript: “Find the HTML element that has the id mission-message.”
-    </p>
-    <p>
-      An <strong>id</strong> is like a unique name tag. There should be only one element with that exact id.
+      Mission objective: build a playful website for Commander Angi,
+      using Star Trek, plants, Sarah Brightman, coding, and friendship.
     </p>
   </div>
 
-  <div class="lesson-step">
-    <h3>3. Then JavaScript waits for clicks</h3>
-    <pre>checkboxes.forEach(function(box) {
-
-box.addEventListener('change', function() {
-...
-});
-});</pre>
-<p><strong>forEach</strong> means: “Go through each checkbox, one by one.”</p>
-<p><strong>addEventListener</strong> means: “Listen for something to happen.”</p>
-<p><strong>'change'</strong> means: “When this checkbox changes from empty to checked, or checked to empty.”</p>
-<p>
-JavaScript is not constantly shouting. It waits quietly until the user does something.
-</p>
-</div>
-
-  <div class="lesson-step">
-    <h3>4. Then JavaScript changes the visual style</h3>
-    <pre>if (box.checked) {
-
-box.parentElement.classList.add('done');
-} else {
-box.parentElement.classList.remove('done');
-}</pre>
-<p><strong>if</strong> means: “Ask a question.”</p>
-<p><strong>box.checked</strong> asks: “Is this checkbox checked?”</p>
-<p><strong>parentElement</strong> means the label around the checkbox.</p>
-<p><strong>classList.add('done')</strong> adds a CSS class.</p>
-<p>
-This is where JavaScript and CSS cooperate:
-JavaScript adds the class, and CSS decides what the class looks like.
-</p>
-</div>
-
-  <div class="lesson-step">
-    <h3>5. Then JavaScript counts</h3>
-    <pre>const total = checkboxes.length;
-
-const checked = document.querySelectorAll('.checklist input:checked').length;</pre>
-<p><strong>checkboxes.length</strong> means: “How many checkboxes exist?”</p>
-<p><strong>:checked</strong> means: “Only the checkboxes that are currently checked.”</p>
-<p>
-So JavaScript compares two numbers:
-total tasks versus completed tasks.
-</p>
-</div>
-
-  <div class="lesson-step">
-    <h3>6. Finally, JavaScript decides what message to show</h3>
-    <pre>if (checked === total) {
-
-message.textContent = 'Mission complete. Commander Angi and Cadet Franci may proceed. 🖖';
-} else {
-message.textContent = checked + ' of ' + total + ' mission tasks complete.';
-}</pre>
-<p><strong>===</strong> means: “Are these exactly the same?”</p>
-<p><strong>textContent</strong> means: “Change the text inside this element.”</p>
-<p>
-Humans say: “When all boxes are checked, show the final message.”
-</p>
-<p>
-JavaScript says: “If the number of checked boxes is exactly the same as the total number of boxes, change the message.”
-</p>
-</div>
-
-  <div class="lesson-step">
-    <h3>Angi’s Real Lesson</h3>
+  <div class="log-entry">
+    <h3>Log Entry 02: The Train Link</h3>
     <p>
-      HTML creates the checklist.
-      CSS decides how it looks.
-      JavaScript watches what the human does and changes the page in response.
+      Franci asked if the website could link to the train timetable
+      from Barcelona to Arenys de Mar.
     </p>
+
     <p>
-      The drama is not that JavaScript is impossible.
-      The drama is that JavaScript needs every thought translated into tiny exact steps. 🙂
+      In HTML, a link is created with the <strong>&lt;a&gt;</strong> tag.
+      The browser reads it as:
+      "This text is clickable, and when someone clicks it, go to this address."
+    </p>
+
+    <pre>
+
+<a href="https://rodalies.gencat.cat/en/horaris/index.html"
+target="_blank">
+🚆 Plot Course to Commander Angi's Base
+</a>
+</pre>
+
+    <p>
+      <strong>href</strong> means destination.
+      It tells the browser where to go.
+    </p>
+
+    <p>
+      <strong>target="_blank"</strong> means:
+      open the timetable in a new tab, so the website stays open.
+    </p>
+
+    <p>
+      <strong>class="button gold"</strong> connects the link to CSS.
+      That is why it looks like a gold button instead of a normal blue link.
     </p>
   </div>
+
+  <div class="log-entry">
+    <h3>Log Entry 03: First Deployment</h3>
+    <p>
+      GitHub Pages was activated.
+      The website went online.
+      A new web developer appeared. 🙂
+    </p>
+  </div>
+
+  <div class="log-entry">
+    <h3>Log Entry 04: JavaScript Drama</h3>
+    <p>
+      The checklist looked finished, but it did not behave.
+      This became Franci's first debugging mission.
+    </p>
+  </div>
+
+  <div class="log-entry">
+    <h3>Log Entry 05: Future Screenshots</h3>
+    <p>
+      Later, screenshots from this ChatGPT conversation,
+      GitHub moments, photos, and lessons with Angi can be added here.
+    </p>
+
+    <div class="placeholder">
+      Screenshot placeholder:
+      "How Franci and ChatGPT built this website step by step."
+    </div>
+  </div>
+
 </div>
 
   </div>
 </section><section class="screen">
-  <div class="card">
-    <h2>How This Website Works</h2>
-    <p><strong>HTML</strong> is the structure.</p>
-    <p><strong>CSS</strong> is the visual design.</p>
-    <p><strong>JavaScript</strong> is the behavior.</p><div class="terminal">
+  <div class="card"><h2>🖼 Gallery</h2>
 
-HTML = the car body
-CSS = the color and design
-JavaScript = the engine that makes things happen
+<p>
+  A space for Franci and Angi's journey:
+  coding lessons, train trips, plants, food, AI conversations,
+  and future adventures.
+</p>
+
+<button class="button gold" id="gallery-button">
+  🖼 Open Gallery
+</button>
+
+<div class="gallery-panel" id="gallery">
+
+  <div class="gallery-item">
+    <h3>Mission Route</h3>
+    <p>
+      This gallery is ready for photos. The first one can be added later,
+      when GitHub is less dramatic on mobile.
+    </p>
+
+    <div class="placeholder">
+      Future photo:
+      Franci on the way to Commander Angi's base.
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <h3>Future Memory</h3>
+    <p>
+      Add photos here from coding lessons, flowers, food, and shared AI discoveries.
+    </p>
+
+    <div class="placeholder">
+      Next photo placeholder
+    </div>
+  </div>
+
 </div>
 
   </div>
 </section><section class="screen">
-  <div class="card">
-    <h2>Final Message</h2>
-    <p>Dear Angi,</p>
-    <p>
-      Thank you for making AI and code feel less scary, more playful, and much more human.
-      This little website is not perfect, but it is alive enough to become our next lesson.
-    </p>
-    <p>Now please teach me how this works. 🙂</p>
-    <p>— Franci</p>
+  <div class="card light-card"><h2>How This Website Works</h2>
+
+<p>
+  <strong>HTML</strong> is the structure.
+  It creates the sections, buttons, text, links, and checklist.
+</p>
+
+<p>
+  <strong>CSS</strong> is the visual design.
+  It creates the black background, gold buttons, magenta details,
+  rounded cards, spacing, and flower-Starfleet feeling.
+</p>
+
+<p>
+  <strong>JavaScript</strong> is the behaviour.
+  It makes the checklist react, opens the JavaScript Drama lesson,
+  opens the CSS Academy, opens the Captain's Log,
+  and opens the Gallery.
+</p>
+
+<div class="terminal">
+
+HTML = the body of the ship
+
+CSS = the lights, colours, panels, flowers, and gold details
+
+JavaScript = the ship computer responding to human action
+</div>
+
+  </div>
+</section><section class="screen">
+  <div class="card"><h2>Final Message</h2>
+
+<p>Dear Angi,</p>
+
+<p>
+  Thank you for making AI and code feel less scary,
+  more playful, and much more human.
+</p>
+
+<p>
+  This little website is not perfect,
+  but it is alive enough to become our next lesson.
+</p>
+
+<p>
+  Now please teach me how this works. 🙂
+</p>
+
+<p>
+  — Franci
+</p>
+
   </div>
 </section><footer>
-  Built with curiosity, friendship, plants, Sarah Brightman, and a small amount of JavaScript drama.
-</footer><script>
+  Built with curiosity, friendship, plants, Sarah Brightman, GitHub,
+  gold, magenta, black, and a small amount of JavaScript drama.
+</footer>
+<script>
 const checkboxes = document.querySelectorAll('.checklist input');
 const message = document.getElementById('mission-message');
+
 const dramaButton = document.getElementById('drama-button');
 const lesson = document.getElementById('javascript-lesson');
 
+const cssButton = document.getElementById('css-button');
+const cssLesson = document.getElementById('css-lesson');
+
+const logButton = document.getElementById('log-button');
+const captainsLog = document.getElementById('captains-log');
+
+const galleryButton = document.getElementById('gallery-button');
+const gallery = document.getElementById('gallery');
+
 checkboxes.forEach(function(box) {
   box.addEventListener('change', function() {
+
     if (box.checked) {
       box.parentElement.classList.add('done');
     } else {
@@ -375,6 +913,7 @@ checkboxes.forEach(function(box) {
     } else {
       message.textContent = checked + ' of ' + total + ' mission tasks complete.';
     }
+
   });
 });
 
@@ -387,5 +926,35 @@ dramaButton.addEventListener('click', function() {
     dramaButton.textContent = 'Hide JavaScript Drama 🙂';
   }
 });
+
+cssButton.addEventListener('click', function() {
+  if (cssLesson.style.display === 'block') {
+    cssLesson.style.display = 'none';
+    cssButton.textContent = '🎨 CSS Academy';
+  } else {
+    cssLesson.style.display = 'block';
+    cssButton.textContent = 'Hide CSS Academy 🙂';
+  }
+});
+
+logButton.addEventListener('click', function() {
+  if (captainsLog.style.display === 'block') {
+    captainsLog.style.display = 'none';
+    logButton.textContent = "📖 Open Captain's Log";
+  } else {
+    captainsLog.style.display = 'block';
+    logButton.textContent = "Close Captain's Log";
+  }
+});
+
+galleryButton.addEventListener('click', function() {
+  if (gallery.style.display === 'block') {
+    gallery.style.display = 'none';
+    galleryButton.textContent = '🖼 Open Gallery';
+  } else {
+    gallery.style.display = 'block';
+    galleryButton.textContent = 'Close Gallery';
+  }
+});
 </script></body>
-</html> 
+</html>
